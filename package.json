@@ -8,9 +8,10 @@
     "start": "node backend/app.js",
     "dev": "NODE_ENV=DEVELOPMENT nodemon backend/app.js",
     "prod": "NODE_ENV=PRODUCTION nodemon backend/app.js",
-    "seeder": "node backend/seeder/seeder.js"
+    "seeder": "node backend/seeder/seeder.js",
+    "format-backend": "prettier --write \"backend/**/*.{js,jsx,json,css}\""
   },
-  "author": "Ghulam Abbas",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,6 +25,7 @@
     "stripe": "^13.8.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prettier": "^3.1.1"
   }
 }

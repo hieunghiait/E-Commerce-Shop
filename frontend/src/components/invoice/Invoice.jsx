@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import "./invoice.css"
 
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { toast } from "react-hot-toast"
 import Loader from "../layout/Loader"
 import MetaData from "../layout/MetaData"
