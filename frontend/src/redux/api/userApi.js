@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { setIsAuthenticated, setLoading, setUser } from "../features/userSlice";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { setIsAuthenticated, setLoading, setUser } from '../features/userSlice';
 
 export const userApi = createApi({
-  reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "/api/v1" }),
-  tagTypes: ["User", "AdminUsers", "AdminUser"],
+  reducerPath: 'userApi',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api/v1' }),
+  tagTypes: ['User', 'AdminUsers', 'AdminUser'],
   endpoints: (builder) => ({
     getMe: builder.query({
       query: () => `/me`,
@@ -20,33 +20,33 @@ export const userApi = createApi({
           console.log(error);
         }
       },
-      providesTags: ["User"],
+      providesTags: ['User'],
     }),
     updateProfile: builder.mutation({
       query(body) {
         return {
-          url: "/me/update",
-          method: "PUT",
+          url: '/me/update',
+          method: 'PUT',
           body,
         };
       },
-      invalidatesTags: ["User"],
+      invalidatesTags: ['User'],
     }),
     uploadAvatar: builder.mutation({
       query(body) {
         return {
-          url: "/me/upload_avatar",
-          method: "PUT",
+          url: '/me/upload_avatar',
+          method: 'PUT',
           body,
         };
       },
-      invalidatesTags: ["User"],
+      invalidatesTags: ['User'],
     }),
     updatePassword: builder.mutation({
       query(body) {
         return {
-          url: "/password/update",
-          method: "PUT",
+          url: '/password/update',
+          method: 'PUT',
           body,
         };
       },
@@ -54,8 +54,8 @@ export const userApi = createApi({
     forgotPassword: builder.mutation({
       query(body) {
         return {
-          url: "/password/forgot",
-          method: "POST",
+          url: '/password/forgot',
+          method: 'POST',
           body,
         };
       },
@@ -64,37 +64,37 @@ export const userApi = createApi({
       query({ token, body }) {
         return {
           url: `/password/reset/${token}`,
-          method: "PUT",
+          method: 'PUT',
           body,
         };
       },
     }),
     getAdminUsers: builder.query({
       query: () => `/admin/users`,
-      providesTags: ["AdminUsers"],
+      providesTags: ['AdminUsers'],
     }),
     getUserDetails: builder.query({
       query: (id) => `/admin/users/${id}`,
-      providesTags: ["AdminUser"],
+      providesTags: ['AdminUser'],
     }),
     updateUser: builder.mutation({
       query({ id, body }) {
         return {
           url: `/admin/users/${id}`,
-          method: "PUT",
+          method: 'PUT',
           body,
         };
       },
-      invalidatesTags: ["AdminUsers"],
+      invalidatesTags: ['AdminUsers'],
     }),
     deleteUser: builder.mutation({
       query(id) {
         return {
           url: `/admin/users/${id}`,
-          method: "DELETE",
+          method: 'DELETE',
         };
       },
-      invalidatesTags: ["AdminUsers"],
+      invalidatesTags: ['AdminUsers'],
     }),
   }),
 });

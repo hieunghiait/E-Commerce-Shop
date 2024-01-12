@@ -1,24 +1,21 @@
-import React, { useState, useEffect } from "react";
-import Loader from "../layout/Loader";
-import { toast } from "react-hot-toast";
-import { MDBDataTable } from "mdbreact";
-import MetaData from "../layout/MetaData";
+import React, { useState, useEffect } from 'react';
+import Loader from '../layout/Loader';
+import { toast } from 'react-hot-toast';
+import { MDBDataTable } from 'mdbreact';
+import MetaData from '../layout/MetaData';
 
-import AdminLayout from "../layout/AdminLayout";
+import AdminLayout from '../layout/AdminLayout';
 import {
   useDeleteReviewMutation,
   useLazyGetProductReviewsQuery,
-} from "../../redux/api/productsApi";
+} from '../../redux/api/productsApi';
 const ProductReviews = () => {
-  const [productId, setProductId] = useState("");
+  const [productId, setProductId] = useState('');
 
-  const [getProductReviews, { data, isLoading, error }] =
-    useLazyGetProductReviewsQuery();
+  const [getProductReviews, { data, isLoading, error }] = useLazyGetProductReviewsQuery();
 
-  const [
-    deleteReview,
-    { error: deleteError, isLoading: isDeleteLoading, isSuccess },
-  ] = useDeleteReviewMutation();
+  const [deleteReview, { error: deleteError, isLoading: isDeleteLoading, isSuccess }] =
+    useDeleteReviewMutation();
 
   useEffect(() => {
     if (error) {
@@ -30,7 +27,7 @@ const ProductReviews = () => {
     }
 
     if (isSuccess) {
-      toast.success("Review Deleted");
+      toast.success('Review Deleted');
     }
   }, [error, deleteError, isSuccess]);
 
@@ -47,29 +44,29 @@ const ProductReviews = () => {
     const reviews = {
       columns: [
         {
-          label: "Review ID",
-          field: "id",
-          sort: "asc",
+          label: 'Review ID',
+          field: 'id',
+          sort: 'asc',
         },
         {
-          label: "Rating",
-          field: "rating",
-          sort: "asc",
+          label: 'Rating',
+          field: 'rating',
+          sort: 'asc',
         },
         {
-          label: "Comment",
-          field: "comment",
-          sort: "asc",
+          label: 'Comment',
+          field: 'comment',
+          sort: 'asc',
         },
         {
-          label: "User",
-          field: "user",
-          sort: "asc",
+          label: 'User',
+          field: 'user',
+          sort: 'asc',
         },
         {
-          label: "Actions",
-          field: "actions",
-          sort: "asc",
+          label: 'Actions',
+          field: 'actions',
+          sort: 'asc',
         },
       ],
       rows: [],
@@ -84,11 +81,11 @@ const ProductReviews = () => {
         actions: (
           <>
             <button
-              className="btn btn-outline-danger ms-2"
+              className='btn btn-outline-danger ms-2'
               onClick={() => deleteReviewHandler(review?._id)}
               disabled={isDeleteLoading}
             >
-              <i className="fa fa-trash"></i>
+              <i className='fa fa-trash'></i>
             </button>
           </>
         ),
@@ -102,27 +99,23 @@ const ProductReviews = () => {
 
   return (
     <AdminLayout>
-      <div className="row justify-content-center my-5">
-        <div className="col-6">
+      <div className='row justify-content-center my-5'>
+        <div className='col-6'>
           <form onSubmit={submitHandler}>
-            <div className="mb-3">
-              <label htmlFor="productId_field" className="form-label">
+            <div className='mb-3'>
+              <label htmlFor='productId_field' className='form-label'>
                 Enter Product ID
               </label>
               <input
-                type="text"
-                id="productId_field"
-                className="form-control"
+                type='text'
+                id='productId_field'
+                className='form-control'
                 value={productId}
                 onChange={(e) => setProductId(e.target.value)}
               />
             </div>
 
-            <button
-              id="search_button"
-              type="submit"
-              className="btn btn-primary w-100 py-2"
-            >
+            <button id='search_button' type='submit' className='btn btn-primary w-100 py-2'>
               SEARCH
             </button>
           </form>
@@ -130,15 +123,9 @@ const ProductReviews = () => {
       </div>
 
       {data?.reviews?.length > 0 ? (
-        <MDBDataTable
-          data={setReviews()}
-          className="px-3"
-          bordered
-          striped
-          hover
-        />
+        <MDBDataTable data={setReviews()} className='px-3' bordered striped hover />
       ) : (
-        <p className="mt-5 text-center">No Reviews</p>
+        <p className='mt-5 text-center'>No Reviews</p>
       )}
     </AdminLayout>
   );

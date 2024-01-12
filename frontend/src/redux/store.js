@@ -1,12 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 
-import userReducer from "./features/userSlice";
-import cartReducer from "./features/cartSlice";
+import userReducer from './features/userSlice';
+import cartReducer from './features/cartSlice';
 
-import { productApi } from "./api/productsApi";
-import { authApi } from "./api/authApi";
-import { userApi } from "./api/userApi";
-import { orderApi } from "./api/orderApi";
+import { productApi } from './api/productsApi';
+import { authApi } from './api/authApi';
+import { userApi } from './api/userApi';
+import { orderApi } from './api/orderApi';
 
 export const store = configureStore({
   reducer: {

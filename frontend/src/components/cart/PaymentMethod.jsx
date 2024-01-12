@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import MetaData from "../layout/MetaData";
-import { useSelector } from "react-redux";
-import CheckoutSteps from "./CheckoutSteps";
-import { caluclateOrderCost } from "../../helpers/helpers";
+import React, { useEffect, useState } from 'react';
+import MetaData from '../layout/MetaData';
+import { useSelector } from 'react-redux';
+import CheckoutSteps from './CheckoutSteps';
+import { caluclateOrderCost } from '../../helpers/helpers';
 import {
   useCreateNewOrderMutation,
   useStripeCheckoutSessionMutation,
-} from "../../redux/api/orderApi";
-import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+} from '../../redux/api/orderApi';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const PaymentMethod = () => {
-  const [method, setMethod] = useState("");
+  const [method, setMethod] = useState('');
 
   const navigate = useNavigate();
 
@@ -19,10 +19,8 @@ const PaymentMethod = () => {
 
   const [createNewOrder, { error, isSuccess }] = useCreateNewOrderMutation();
 
-  const [
-    stripeCheckoutSession,
-    { data: checkoutData, error: checkoutError, isLoading },
-  ] = useStripeCheckoutSessionMutation();
+  const [stripeCheckoutSession, { data: checkoutData, error: checkoutError, isLoading }] =
+    useStripeCheckoutSessionMutation();
 
   useEffect(() => {
     if (checkoutData) {
@@ -40,17 +38,16 @@ const PaymentMethod = () => {
     }
 
     if (isSuccess) {
-      navigate("/me/orders?order_success=true");
+      navigate('/me/orders?order_success=true');
     }
   }, [error, isSuccess]);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
-      caluclateOrderCost(cartItems);
+    const { itemsPrice, shippingPrice, taxPrice, totalPrice } = caluclateOrderCost(cartItems);
 
-    if (method === "COD") {
+    if (method === 'COD') {
       // Create COD Order
       const orderData = {
         shippingInfo,
@@ -60,15 +57,15 @@ const PaymentMethod = () => {
         taxAmount: taxPrice,
         totalAmount: totalPrice,
         paymentInfo: {
-          status: "Not Paid",
+          status: 'Not Paid',
         },
-        paymentMethod: "COD",
+        paymentMethod: 'COD',
       };
 
       createNewOrder(orderData);
     }
 
-    if (method === "Card") {
+    if (method === 'Card') {
       // Stripe Checkout
       const orderData = {
         shippingInfo,
@@ -85,47 +82,42 @@ const PaymentMethod = () => {
 
   return (
     <>
-      <MetaData title={"Payment Method"} />
+      <MetaData title={'Payment Method'} />
       <CheckoutSteps shipping confirmOrder payment />
 
-      <div className="row wrapper">
-        <div className="col-10 col-lg-5">
-          <form className="shadow rounded bg-body" onSubmit={submitHandler}>
-            <h2 className="mb-4">Select Payment Method</h2>
+      <div className='row wrapper'>
+        <div className='col-10 col-lg-5'>
+          <form className='shadow rounded bg-body' onSubmit={submitHandler}>
+            <h2 className='mb-4'>Select Payment Method</h2>
 
-            <div className="form-check">
+            <div className='form-check'>
               <input
-                className="form-check-input"
-                type="radio"
-                name="payment_mode"
-                id="codradio"
-                value="COD"
-                onChange={(e) => setMethod("COD")}
+                className='form-check-input'
+                type='radio'
+                name='payment_mode'
+                id='codradio'
+                value='COD'
+                onChange={(e) => setMethod('COD')}
               />
-              <label className="form-check-label" htmlFor="codradio">
+              <label className='form-check-label' htmlFor='codradio'>
                 Cash on Delivery
               </label>
             </div>
-            <div className="form-check">
+            <div className='form-check'>
               <input
-                className="form-check-input"
-                type="radio"
-                name="payment_mode"
-                id="cardradio"
-                value="Card"
-                onChange={(e) => setMethod("Card")}
+                className='form-check-input'
+                type='radio'
+                name='payment_mode'
+                id='cardradio'
+                value='Card'
+                onChange={(e) => setMethod('Card')}
               />
-              <label className="form-check-label" htmlFor="cardradio">
+              <label className='form-check-label' htmlFor='cardradio'>
                 Card - VISA, MasterCard
               </label>
             </div>
 
-            <button
-              id="shipping_btn"
-              type="submit"
-              className="btn py-2 w-100"
-              disabled={isLoading}
-            >
+            <button id='shipping_btn' type='submit' className='btn py-2 w-100' disabled={isLoading}>
               CONTINUE
             </button>
           </form>

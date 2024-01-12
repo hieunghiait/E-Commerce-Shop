@@ -9,7 +9,8 @@
     "dev": "NODE_ENV=DEVELOPMENT nodemon backend/app.js",
     "prod": "NODE_ENV=PRODUCTION nodemon backend/app.js",
     "seeder": "node backend/seeder/seeder.js",
-    "format-backend": "prettier --write \"backend/**/*.{js,jsx,json,css}\""
+    "format-backend": "prettier --write \"backend/**/*.{js,jsx,json,css}\"",
+    "format-frontend": "prettier --write \"frontend/**/*.{js,jsx,json,css}\""
   },
   "author": "",
   "license": "ISC",

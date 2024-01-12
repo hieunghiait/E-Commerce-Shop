@@ -1,22 +1,22 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import ProtectedRoute from "../auth/ProtectedRoute";
-import Dashboard from "../admin/Dashboard";
-import ListProducts from "../admin/ListProducts";
-import NewProduct from "../admin/NewProduct";
-import UpdateProduct from "../admin/UpdateProduct";
-import UploadImages from "../admin/UploadImages";
-import ListOrders from "../admin/ListOrders";
-import ProcessOrder from "../admin/ProcessOrder";
-import ListUsers from "../admin/ListUsers";
-import UpdateUser from "../admin/UpdateUser";
-import ProductReviews from "../admin/ProductReviews";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import ProtectedRoute from '../auth/ProtectedRoute';
+import Dashboard from '../admin/Dashboard';
+import ListProducts from '../admin/ListProducts';
+import NewProduct from '../admin/NewProduct';
+import UpdateProduct from '../admin/UpdateProduct';
+import UploadImages from '../admin/UploadImages';
+import ListOrders from '../admin/ListOrders';
+import ProcessOrder from '../admin/ProcessOrder';
+import ListUsers from '../admin/ListUsers';
+import UpdateUser from '../admin/UpdateUser';
+import ProductReviews from '../admin/ProductReviews';
 
 const adminRoutes = () => {
   return (
     <>
       <Route
-        path="/admin/dashboard"
+        path='/admin/dashboard'
         element={
           <ProtectedRoute admin={true}>
             <Dashboard />
@@ -24,7 +24,7 @@ const adminRoutes = () => {
         }
       />
       <Route
-        path="/admin/products"
+        path='/admin/products'
         element={
           <ProtectedRoute admin={true}>
             <ListProducts />
@@ -32,7 +32,7 @@ const adminRoutes = () => {
         }
       />
       <Route
-        path="/admin/product/new"
+        path='/admin/product/new'
         element={
           <ProtectedRoute admin={true}>
             <NewProduct />
@@ -40,7 +40,7 @@ const adminRoutes = () => {
         }
       />
       <Route
-        path="/admin/products/:id"
+        path='/admin/products/:id'
         element={
           <ProtectedRoute admin={true}>
             <UpdateProduct />
@@ -48,7 +48,7 @@ const adminRoutes = () => {
         }
       />
       <Route
-        path="/admin/products/:id/upload_images"
+        path='/admin/products/:id/upload_images'
         element={
           <ProtectedRoute admin={true}>
             <UploadImages />
@@ -57,7 +57,7 @@ const adminRoutes = () => {
       />
 
       <Route
-        path="/admin/orders"
+        path='/admin/orders'
         element={
           <ProtectedRoute admin={true}>
             <ListOrders />
@@ -66,7 +66,7 @@ const adminRoutes = () => {
       />
 
       <Route
-        path="/admin/orders/:id"
+        path='/admin/orders/:id'
         element={
           <ProtectedRoute admin={true}>
             <ProcessOrder />
@@ -75,7 +75,7 @@ const adminRoutes = () => {
       />
 
       <Route
-        path="/admin/users"
+        path='/admin/users'
         element={
           <ProtectedRoute admin={true}>
             <ListUsers />
@@ -84,7 +84,7 @@ const adminRoutes = () => {
       />
 
       <Route
-        path="/admin/users/:id"
+        path='/admin/users/:id'
         element={
           <ProtectedRoute admin={true}>
             <UpdateUser />
@@ -93,7 +93,7 @@ const adminRoutes = () => {
       />
 
       <Route
-        path="/admin/reviews"
+        path='/admin/reviews'
         element={
           <ProtectedRoute admin={true}>
             <ProductReviews />

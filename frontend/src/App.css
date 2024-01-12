@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: "Amazon Ember";
+  font-family: 'Amazon Ember';
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -186,7 +186,7 @@ footer {
   padding-left: 0;
 }
 .loader:after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 64px;
   height: 64px;
