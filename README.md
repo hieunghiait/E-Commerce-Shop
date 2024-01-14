@@ -2,7 +2,9 @@
 
 ## Init project: Nghia Le
 ### Menbers 
-#### Le Hieu Nghia 
-#### Luu Thuy Vi 
-#### Ta Hoang Hai
+|        Name   | 
+|---------------|
+| Le Hieu Nghia |
+| Luu Thuy Vi   |
+| Ta Hoang Hai  |
 
