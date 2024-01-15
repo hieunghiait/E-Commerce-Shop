@@ -1,10 +1,10 @@
 ## Subject: MERN Stack
 ## Author: Nghia Le
 ### Contributors
-|        Name   | 
-|---------------|
-| Le Hieu Nghia |
-| Luu Thuy Vi   |
-| Ta Hoang Hai  |
+|ID  |       Name   | 
+|    |--------------|
+| 1. |Le Hieu Nghia |
+| 2. |Luu Thuy Vi   |
+| 3. |Ta Hoang Hai  |
 
 
