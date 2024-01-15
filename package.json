@@ -6,9 +6,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node backend/app.js",
-    "dev": "NODE_ENV=DEVELOPMENT nodemon backend/app.js",
+    "dev-backend": "nodemon backend/app.js",
     "prod": "NODE_ENV=PRODUCTION nodemon backend/app.js",
     "seeder": "node backend/seeder/seeder.js",
+    "start-frontend": "cd frontend && npm start",
     "format-backend": "prettier --write \"backend/**/*.{js,jsx,json,css}\"",
     "format-frontend": "prettier --write \"frontend/**/*.{js,jsx,json,css}\""
   },
@@ -22,11 +23,12 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.2",
+    "morgan": "^1.10.0",
     "nodemailer": "^6.9.5",
     "stripe": "^13.8.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.2",
     "prettier": "^3.1.1"
   }
 }

@@ -8,12 +8,17 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, 'Please enter your name'],
-      maxLength: [50, 'Your name cannot exceed 50 characters'],
+      minLength: [3, 'Your name must be longer than 3 characters'],
+      maxLength: [25, 'Your name cannot exceed 50 characters'],
     },
     email: {
       type: String,
       required: [true, 'Please enter your email'],
       unique: true,
+      match: [
+        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+        'Please enter a valid email address',
+      ],
     },
     password: {
       type: String,
@@ -32,7 +37,9 @@ const userSchema = new mongoose.Schema(
     resetPasswordToken: String,
     resetPasswordExpire: Date,
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 )
 
 // Encrypting password before saving the user
@@ -40,15 +47,21 @@ userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) {
     next()
   }
-
+  // Hash password
   this.password = await bcrypt.hash(this.password, 10)
 })
 
 // Return JWT Token
 userSchema.methods.getJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_TIME,
-  })
+  return jwt.sign(
+    {
+      id: this._id,
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRES_TIME,
+    }
+  )
 }
 
 // Compare user password

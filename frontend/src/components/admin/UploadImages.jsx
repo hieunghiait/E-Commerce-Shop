@@ -1,90 +1,90 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { toast } from 'react-hot-toast';
+import React, { useEffect, useRef, useState } from 'react'
+import { toast } from 'react-hot-toast'
 
-import MetaData from '../layout/MetaData';
-import AdminLayout from '../layout/AdminLayout';
-import { useNavigate, useParams } from 'react-router-dom';
+import MetaData from '../layout/MetaData'
+import AdminLayout from '../layout/AdminLayout'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   useDeleteProductImageMutation,
   useGetProductDetailsQuery,
   useUploadProductImagesMutation,
-} from '../../redux/api/productsApi';
+} from '../../redux/api/productsApi'
 
 const UploadImages = () => {
-  const fileInputRef = useRef(null);
-  const params = useParams();
-  const navigate = useNavigate();
+  const fileInputRef = useRef(null)
+  const params = useParams()
+  const navigate = useNavigate()
 
-  const [images, setImages] = useState([]);
-  const [imagesPreview, setImagesPreview] = useState([]);
-  const [uploadedImages, setUploadedImages] = useState([]);
+  const [images, setImages] = useState([])
+  const [imagesPreview, setImagesPreview] = useState([])
+  const [uploadedImages, setUploadedImages] = useState([])
 
-  const [uploadProductImages, { isLoading, error, isSuccess }] = useUploadProductImagesMutation();
+  const [uploadProductImages, { isLoading, error, isSuccess }] = useUploadProductImagesMutation()
 
   const [deleteProductImage, { isLoading: isDeleteLoading, error: deleteError }] =
-    useDeleteProductImageMutation();
+    useDeleteProductImageMutation()
 
-  const { data } = useGetProductDetailsQuery(params?.id);
+  const { data } = useGetProductDetailsQuery(params?.id)
 
   useEffect(() => {
     if (data?.product) {
-      setUploadedImages(data?.product?.images);
+      setUploadedImages(data?.product?.images)
     }
 
     if (error) {
-      toast.error(error?.data?.message);
+      toast.error(error?.data?.message)
     }
 
     if (deleteError) {
-      toast.error(deleteError?.data?.message);
+      toast.error(deleteError?.data?.message)
     }
 
     if (isSuccess) {
-      setImagesPreview([]);
-      toast.success('Images Uploaded');
-      navigate('/admin/products');
+      setImagesPreview([])
+      toast.success('Images Uploaded')
+      navigate('/admin/products')
     }
-  }, [data, error, isSuccess, deleteError]);
+  }, [data, error, isSuccess, deleteError])
 
   const onChange = (e) => {
-    const files = Array.from(e.target.files);
+    const files = Array.from(e.target.files)
 
     files.forEach((file) => {
-      const reader = new FileReader();
+      const reader = new FileReader()
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setImagesPreview((oldArray) => [...oldArray, reader.result]);
-          setImages((oldArray) => [...oldArray, reader.result]);
+          setImagesPreview((oldArray) => [...oldArray, reader.result])
+          setImages((oldArray) => [...oldArray, reader.result])
         }
-      };
+      }
 
-      reader.readAsDataURL(file);
-    });
-  };
+      reader.readAsDataURL(file)
+    })
+  }
 
   const handleResetFileInput = () => {
     if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+      fileInputRef.current.value = ''
     }
-  };
+  }
 
   const handleImagePreviewDelete = (image) => {
-    const filteredImagesPreview = imagesPreview.filter((img) => img != image);
+    const filteredImagesPreview = imagesPreview.filter((img) => img != image)
 
-    setImages(filteredImagesPreview);
-    setImagesPreview(filteredImagesPreview);
-  };
+    setImages(filteredImagesPreview)
+    setImagesPreview(filteredImagesPreview)
+  }
 
   const submitHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    uploadProductImages({ id: params?.id, body: { images } });
-  };
+    uploadProductImages({ id: params?.id, body: { images } })
+  }
 
   const deleteImage = (imgId) => {
-    deleteProductImage({ id: params?.id, body: { imgId } });
-  };
+    deleteProductImage({ id: params?.id, body: { imgId } })
+  }
 
   return (
     <AdminLayout>
@@ -192,7 +192,7 @@ const UploadImages = () => {
         </div>
       </div>
     </AdminLayout>
-  );
-};
+  )
+}
 
-export default UploadImages;
+export default UploadImages

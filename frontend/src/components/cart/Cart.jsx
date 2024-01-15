@@ -1,30 +1,30 @@
-import React from 'react';
-import MetaData from '../layout/MetaData';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { setCartItem, removeCartItem } from '../../redux/features/cartSlice';
+import React from 'react'
+import MetaData from '../layout/MetaData'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { setCartItem, removeCartItem } from '../../redux/features/cartSlice'
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart)
 
   const increseQty = (item, quantity) => {
-    const newQty = quantity + 1;
+    const newQty = quantity + 1
 
-    if (newQty > item?.stock) return;
+    if (newQty > item?.stock) return
 
-    setItemToCart(item, newQty);
-  };
+    setItemToCart(item, newQty)
+  }
 
   const decreseQty = (item, quantity) => {
-    const newQty = quantity - 1;
+    const newQty = quantity - 1
 
-    if (newQty <= 0) return;
+    if (newQty <= 0) return
 
-    setItemToCart(item, newQty);
-  };
+    setItemToCart(item, newQty)
+  }
 
   const setItemToCart = (item, newQty) => {
     const cartItem = {
@@ -34,18 +34,18 @@ const Cart = () => {
       image: item?.image,
       stock: item?.stock,
       quantity: newQty,
-    };
+    }
 
-    dispatch(setCartItem(cartItem));
-  };
+    dispatch(setCartItem(cartItem))
+  }
 
   const removeCartItemHandler = (id) => {
-    dispatch(removeCartItem(id));
-  };
+    dispatch(removeCartItem(id))
+  }
 
   const checkoutHandler = () => {
-    navigate('/shipping');
-  };
+    navigate('/shipping')
+  }
 
   return (
     <>
@@ -145,7 +145,7 @@ const Cart = () => {
         </>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

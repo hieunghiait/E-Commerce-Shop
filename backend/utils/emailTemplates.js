@@ -521,7 +521,7 @@ export const getResetPasswordTemplate = (username, resetUrl) => `
                           <a href="{{support_url}}">contact support</a> if you
                           have questions.
                         </p>
-                        <p>Thanks, <br />The ShopIT team</p>
+                        <p>Thanks, <br />Nghia Le</p>
 
                         <table class="body-sub" role="presentation">
                           <tr>
@@ -556,8 +556,8 @@ export const getResetPasswordTemplate = (username, resetUrl) => `
                   <tr>
                     <td class="content-cell" align="center">
                       <p class="f-fallback sub align-center">
-                        ShopIT
-                        <br />1234 Street Rd. <br />Suite 1234
+                        &copy; 2023 ShopIT. All rights reserved.
+                        <br />Bien Hoa, Dong Nai<br />Suite 1234
                       </p>
                     </td>
                   </tr>

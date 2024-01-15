@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import { connectDatabase } from './config/dbConnect.js'
 import errorMiddleware from './middlewares/errors.js'
-
+import morgan from 'morgan'
 import path from 'path'
 // import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url)
@@ -20,6 +20,7 @@ process.on('uncaughtException', (err) => {
 if (process.env.NODE_ENV !== 'PRODUCTION') {
   dotenv.config({ path: 'backend/config/config.env' })
 }
+app.use(morgan('dev'))
 
 // Connecting to database
 connectDatabase()
@@ -58,9 +59,7 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
 app.use(errorMiddleware)
 
 const server = app.listen(process.env.PORT, () => {
-  console.log(
-    `Server started on PORT: ${process.env.PORT} in ${process.env.NODE_ENV} mode.`
-  )
+  console.log('Server started on PORT: ' + process.env.PORT)
 })
 
 //Handle Unhandled Promise rejections

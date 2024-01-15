@@ -10,19 +10,26 @@ import { delete_file, upload_file } from '../utils/cloudinary.js'
 // Register user   =>  /api/v1/register
 export const registerUser = catchAsyncErrors(async (req, res, next) => {
   const { name, email, password } = req.body
-
-  const user = await User.create({
+  //check Username exist or not
+  const existingUser = await User.findOne({
+    email,
+  })
+  if (existingUser) {
+    return next(new ErrorHandler('Email already exists', 400))
+  }
+  const newUser = await User.create({
     name,
     email,
     password,
   })
 
-  sendToken(user, 201, res)
+  sendToken(newUser, 201, res)
 })
 
 // Login user   =>  /api/v1/login
 export const loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body
+  console.log(req.body)
 
   if (!email || !password) {
     return next(new ErrorHandler('Please enter email & password', 400))
@@ -30,7 +37,7 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
 
   // Find user in the database
   const user = await User.findOne({ email }).select('+password')
-
+  //If user not found
   if (!user) {
     return next(new ErrorHandler('Invalid email or password', 401))
   }
@@ -48,7 +55,7 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
 // Logout user   =>  /api/v1/logout
 export const logout = catchAsyncErrors(async (req, res, next) => {
   res.cookie('token', null, {
-    expires: new Date(Date.now()),
+    expires: new Date(Date.now() - 1),
     httpOnly: true,
   })
 
