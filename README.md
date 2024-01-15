@@ -1,3 +1,10 @@
-# Project title: MERN Stack
+## Subject: MERN Stack
+## Author: Nghia Le
+### Contributors
+|      Name    | 
+|--------------|
+|Le Hieu Nghia |
+|Luu Thuy Vi   |
+|Ta Hoang Hai  |
 
-## Init project: Nghia Le
+

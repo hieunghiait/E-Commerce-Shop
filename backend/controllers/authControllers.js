@@ -141,7 +141,7 @@ export const resetPassword = catchAsyncErrors(async (req, res, next) => {
       )
     )
   }
-
+  //Check password with confrimPasssword is the same
   if (req.body.password !== req.body.confirmPassword) {
     return next(new ErrorHandler('Passwords does not match', 400))
   }
