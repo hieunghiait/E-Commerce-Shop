@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import { useForgotPasswordMutation } from '../../redux/api/userApi'
-import { useSelector } from 'react-redux'
-import toast from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
-import MetaData from '../layout/MetaData'
+import React, { useEffect, useState } from 'react';
+import { useForgotPasswordMutation } from '../../redux/api/userApi';
+import { useSelector } from 'react-redux';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import MetaData from '../layout/MetaData';
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [forgotPassword, { isLoading, error, isSuccess }] = useForgotPasswordMutation()
+  const [forgotPassword, { isLoading, error, isSuccess }] = useForgotPasswordMutation();
 
-  const { isAuthenticated } = useSelector((state) => state.auth)
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/')
+      navigate('/');
     }
     if (error) {
-      toast.error(error?.data?.message)
+      toast.error(error?.data?.message);
     }
 
     if (isSuccess) {
-      toast.success('Email Sent. Please check your inbox')
+      toast.success('Email Sent. Please check your inbox');
     }
-  }, [error, isAuthenticated, isSuccess])
+  }, [error, isAuthenticated, isSuccess]);
 
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    forgotPassword({ email })
-  }
+    forgotPassword({ email });
+  };
 
   return (
     <>
@@ -66,7 +66,7 @@ const ForgotPassword = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;
