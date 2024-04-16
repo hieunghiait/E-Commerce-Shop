@@ -1,31 +1,5 @@
 export default [
   {
-    name: 'SanDisk Ultra 128GB SDXC UHS-I Memory Card up to 80MB/s',
-    price: 45.89,
-    description:
-      'Ultra-fast cards (2) to take better pictures and Full HD videos (1) with your compact to mid-range point-and-shoot cameras and camcorders. With SanDisk Ultra SDXC UHS-I cards you’ll benefit from faster downloads, high capacity, and better performance to capture and store 128GB (5) of high quality pictures and Full HD video (1). Take advantage of ultra-fast read speeds of up to 80MB/s (3) to save time moving photos and videos from the card to your computer. From a leader in flash memory storage, SanDisk Ultra SDXC UHS-I cards are compatible with SDHC and SDXC digital devices, and come with a 10-year limited warranty (6).',
-    ratings: 4.5,
-    images: [
-      {
-        public_id: 'shopit/demo/nkkjkta63uiazppzkmjf',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577488/shopit/demo/nkkjkta63uiazppzkmjf.jpg',
-      },
-      {
-        public_id: 'shopit/demo/hz1iwdqzrvxtfxincvju',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577488/shopit/demo/hz1iwdqzrvxtfxincvju.jpg',
-      },
-      {
-        public_id: 'shopit/demo/oc2dvvkxyxukc13y9pjv',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577488/shopit/demo/oc2dvvkxyxukc13y9pjv.jpg',
-      },
-    ],
-    category: 'Electronics',
-    seller: 'Ebay',
-    stock: 50,
-    numOfReviews: 32,
-    reviews: [],
-  },
-  {
     name: 'CAN USB FD Adapter (GC-CAN-USB-FD)',
     price: 315,
     description:
@@ -100,32 +74,6 @@ export default [
     reviews: [],
   },
   {
-    name: 'Apple AirPods with Charging Case (Wired)',
-    price: 126.99,
-    description:
-      'AirPods with Charging Case: More than 24 hours listening time, up to 18 hours talk time; AirPods (single charge): Up to 5 hours listening time, up to 3 hours talk time or 15 minutes in the case equals up to 3 hours listening time or up to 2 hours talk time.',
-    ratings: 4.8,
-    images: [
-      {
-        public_id: 'shopit/demo/yj00oalanbzmbzctsbln',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577557/shopit/demo/yj00oalanbzmbzctsbln.jpg',
-      },
-      {
-        public_id: 'shopit/demo/mijzcdd5sle8a2any1i8',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577557/shopit/demo/mijzcdd5sle8a2any1i8.jpg',
-      },
-      {
-        public_id: 'shopit/demo/kxckb0o7fbdwqgmugoct',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577557/shopit/demo/kxckb0o7fbdwqgmugoct.jpg',
-      },
-    ],
-    category: 'Electronics',
-    seller: 'Amazon',
-    stock: 122,
-    numOfReviews: 2671,
-    reviews: [],
-  },
-  {
     name: 'Cable Boom Microphone - Volume Control for Playstation PS4 or Xbox',
     price: 27.99,
     description:
@@ -178,15 +126,15 @@ export default [
     images: [
       {
         public_id: 'shopit/demo/jzqaj98nnhy0hcsilx9y',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577597/shopit/demo/jzqaj98nnhy0hcsilx9y.jpg',
+        url: 'https://uscom.vn/wp-content/uploads/2021/09/AIRGRAY.webp',
       },
       {
         public_id: 'shopit/demo/welkq4dgfi5267usmj0n',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577597/shopit/demo/welkq4dgfi5267usmj0n.jpg',
+        url: 'https://uscom.vn/wp-content/uploads/2021/09/AIRGRAY.webp',
       },
       {
         public_id: 'shopit/demo/pabtjloyzenmr6z8klcr',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577600/shopit/demo/pabtjloyzenmr6z8klcr.jpg',
+        url: 'https://uscom.vn/wp-content/uploads/2021/09/AIRGRAY.webp',
       },
     ],
     category: 'Laptops',
@@ -196,25 +144,25 @@ export default [
     reviews: [],
   },
   {
-    name: 'Kauffman Orchards Homegrown McIntosh Apples',
-    price: 2.75,
+    name: 'Logitech MX Master 3 Advanced Wireless Mouse',
+    price: 99.99,
     description:
-      "McIntosh is a pretty red/green apple with white flesh Homegrown in Kauffman's orchard in healthy Lancaster County soil McIntosh apples are famous for snacking, pies, salads, and applesauce Protected with soft, high-density foam for safe shipping to your door Not for sale to California, Oregon, or Washington due to state laws governing fresh produce",
-    ratings: 5,
+      'The Logitech MX Master 3 Advanced Wireless Mouse provides the precision you need to master your next project. With advanced features such as app-specific customizations, a remarkably fast scroll wheel, and a comfortable design, you can work efficiently and comfortably for hours.',
+    ratings: 4.7,
     images: [
       {
-        public_id: 'shopit/demo/mq0zpyzmzqokphs9m9we',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577619/shopit/demo/mq0zpyzmzqokphs9m9we.jpg',
+        public_id: 'shopit/demo/mxmaster3_1',
+        url: 'https://product.hstatic.net/200000722513/product/h_mx_master_3_wireless__graphite_.jpg_1e5491e35f754dcc90b90582a9c3be95_ca0c63ca59de4ed1b4d46fcc5c81c1ed.png',
       },
       {
-        public_id: 'shopit/demo/pkyy8rifxpesiwpy23kk',
-        url: 'http://res.cloudinary.com/udemy-courses/image/upload/v1698577619/shopit/demo/pkyy8rifxpesiwpy23kk.jpg',
+        public_id: 'shopit/demo/mxmaster3_2',
+        url: 'https://product.hstatic.net/200000722513/product/h_mx_master_3_wireless__graphite_.jpg_1e5491e35f754dcc90b90582a9c3be95_ca0c63ca59de4ed1b4d46fcc5c81c1ed.png',
       },
     ],
-    category: 'Food',
-    seller: "Kauffman's Fruit Farm & Market",
-    stock: 500,
-    numOfReviews: 1,
+    category: 'Accessories',
+    seller: 'Amazon',
+    stock: 200,
+    numOfReviews: 150,
     reviews: [],
   },
 ]

@@ -1,38 +1,37 @@
-import React, { useEffect } from 'react'
-import Loader from '../layout/Loader'
-import { toast } from 'react-hot-toast'
-import { MDBDataTable } from 'mdbreact'
-import { Link } from 'react-router-dom'
-import MetaData from '../layout/MetaData'
+import React, { useEffect } from 'react';
+import Loader from '../layout/Loader';
+import { toast } from 'react-hot-toast';
+import { MDBDataTable } from 'mdbreact';
+import { Link } from 'react-router-dom';
+import MetaData from '../layout/MetaData';
 
-import AdminLayout from '../layout/AdminLayout'
+import AdminLayout from '../layout/AdminLayout';
 
-
-import { useDeleteUserMutation, useGetAdminUsersQuery } from '../../redux/api/userApi'
+import { useDeleteUserMutation, useGetAdminUsersQuery } from '../../redux/api/userApi';
 
 const ListUsers = () => {
-  const { data, isLoading, error } = useGetAdminUsersQuery()
+  const { data, isLoading, error } = useGetAdminUsersQuery();
 
   const [deleteUser, { error: deleteError, isLoading: isDeleteLoading, isSuccess }] =
-    useDeleteUserMutation()
+    useDeleteUserMutation();
 
   useEffect(() => {
     if (error) {
-      toast.error(error?.data?.message)
+      toast.error(error?.data?.message);
     }
 
     if (deleteError) {
-      toast.error(deleteError?.data?.message)
+      toast.error(deleteError?.data?.message);
     }
 
     if (isSuccess) {
-      toast.success('User Deleted')
+      toast.success('User Deleted');
     }
-  }, [error, deleteError, isSuccess])
+  }, [error, deleteError, isSuccess]);
 
   const deleteUserHandler = (id) => {
-    deleteUser(id)
-  }
+    deleteUser(id);
+  };
 
   const setUsers = () => {
     const users = {
@@ -64,7 +63,7 @@ const ListUsers = () => {
         },
       ],
       rows: [],
-    }
+    };
 
     data?.users?.forEach((user) => {
       users.rows.push({
@@ -87,13 +86,13 @@ const ListUsers = () => {
             </button>
           </>
         ),
-      })
-    })
+      });
+    });
 
-    return users
-  }
+    return users;
+  };
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
   return (
     <AdminLayout>
@@ -103,7 +102,7 @@ const ListUsers = () => {
 
       <MDBDataTable data={setUsers()} className='px-3' bordered striped hover />
     </AdminLayout>
-  )
-}
+  );
+};
 
-export default ListUsers
+export default ListUsers;
